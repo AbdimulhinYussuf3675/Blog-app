@@ -42,12 +42,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_144046) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
-  add_foreign_key "comments", "users", column: "author_id"
-  add_foreign_key "posts", "users", column: "author_id"
-  add_foreign_key "comments", "posts"
-  add_foreign_key "likes", "posts"
-  add_foreign_key "likes", "users", column: "author_id"
-
 
 end
