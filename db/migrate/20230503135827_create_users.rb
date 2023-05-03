@@ -5,6 +5,7 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.text :photo
       t.text :bio
       t.integer :posts_counter
+      t.references :author, foreign_key: { to_table: 'users' }
 
       t.timestamps
     end
