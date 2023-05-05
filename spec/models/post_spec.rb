@@ -1,16 +1,34 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.new(name: 'Khusniddin Ismoilov', photo: 'https://picsum.photos/400', bio: 'I am a full-stack software engineer.') }
-  subject { Post.new(title: 'Congrats', text: 'Congratulations', author: user) }
-  before { subject.save }
+  let(:user) { User.new(name: 'Abdimulhin', photo: 'https://picsum.photos/id/4/5000/3333', bio: 'test user', posts_counter: 0) }
+  subject { Post.new(author: user, title: 'testing post', comments_counter: 0, likes_counter: 0) }
 
   it 'has title' do
-    expect(subject.title).to eq('Congrats')
+    expect(subject.title).to eq('testing post')
+  end
+  it 'has valid attributs' do
+    expect(subject).to be_valid
   end
 
-  it 'has text' do
-    expect(subject.text).to eq('Congratulations')
+  it 'has no valid comment_counter that is less than 0' do
+    subject.comments_counter = -1
+    expect(subject).to_not be_valid
+  end
+
+  it 'has no valid with like_counter' do
+    subject.likes_counter = -1
+    expect(subject).to_not be_valid
+  end
+
+  it 'has valid like_count' do
+    subject.likes_counter = 1
+    expect(subject).to be_valid
+  end
+
+  it 'has valid comment_conunt' do
+    subject.comments_counter = 1
+    expect(subject).to be_valid
   end
 
   it 'title has a maximum length of 250 characters' do
