@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
       user.bio = 'Am a kenyan'
     end
   end
-  it "name should be exist" do
+  it 'name should be exist' do
     expect(subject.name).to eql('Abdimulhin Adan')
   end
   it 'posts_counter should be an integer' do
