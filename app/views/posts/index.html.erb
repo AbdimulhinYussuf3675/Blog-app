@@ -1,3 +1,7 @@
-<% @posts.each do |post| %>
-    <%= post.title %>
-<% end %>
+<h1>Post List</h1>
+
+<% @posts.each do |post|%>
+    <div class="post">
+        <%= post.text %>
+    </div>
+    <% end %>

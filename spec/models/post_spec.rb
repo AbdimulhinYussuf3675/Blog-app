@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:user) { User.new(name: 'Abdimulhin', photo: 'https://picsum.photos/id/4/5000/3333', bio: 'test user', posts_counter: 0) }
-  subject { Post.new(author: user, title: 'testing post', comments_counter: 0, likes_counter: 0) }
+  let(:user) { User.create(name: 'Abdimulhin', photo: 'https://picsum.photos/id/4/5000/3333', bio: 'test user', posts_counter: 0) }
+  subject { Post.create(author: user, title: 'testing post', comments_counter: 0, likes_counter: 0) }
 
   it 'has title' do
     expect(subject.title).to eq('testing post')
