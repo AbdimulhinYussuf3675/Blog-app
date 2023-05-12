@@ -1,14 +1,5 @@
 <div class="posts-container">
 
-    <div class="user-box">
-        <img class="user-img" src=<%= @user.photo%> alt="user"/>
-        <div class="user-info-box">
-            <h2 class="user-name"><%= @user.name %></h2>
-            <p class="user-post-count">Number of posts: <%= @user.posts_counter%></p>
-
-        </div>
-    </div>
-
     <% @posts.each do |post| %>
         <div class="user-recent-post">
             <h2 class="user-post-title">Post: #<%= post.id %></h2>
