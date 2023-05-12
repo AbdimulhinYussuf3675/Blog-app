@@ -1,0 +1,10 @@
+<div class="posts-container">
+  <h1>Add a new post</h1>
+  <div class="form_post">
+    <%= form_with model: @post do |form| %>
+      <%= form.text_field :title, class: "form_title", placeholder: "Title" %>
+      <%= form.text_area :text, class: "form_text", placeholder: "Type your post here..." %>
+      <%= form.submit "Create", class: "form_btn" %>
+      <% end %>
+  </div>
+</div>

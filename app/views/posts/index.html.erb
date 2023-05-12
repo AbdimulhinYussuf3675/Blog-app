@@ -1,5 +1,14 @@
 <div class="posts-container">
 
+    <div class="user-box">
+        <img class="user-img" src=<%= @user.photo%> alt="user"/>
+        <div class="user-info-box">
+            <h2 class="user-name"><%= @user.name %></h2>
+            <p class="user-post-count">Number of posts: <%= @user.posts_counter%></p>
+
+        </div>
+    </div>
+
     <% @posts.each do |post| %>
         <div class="user-recent-post">
             <h2 class="user-post-title">Post: #<%= post.id %></h2>
@@ -11,7 +20,14 @@
                     <h3 class="comments"><%= comment.author.name %>:     <%= comment.text %></h3>
                 <% end %>
             </div>
-
+            <div class="like_comment">
+                <%= form_with url: post_likes_path(post) do |form| %>
+                    <%= form.submit "Like", class: "btn" %>
+                <% end %>
+                <%= form_with url: post_likes_path(post) do |form| %>
+                    <%= form.submit "Comment", class: "btn" %>
+                <% end %>
+            </div>
         </div>
     <% end%>
 
