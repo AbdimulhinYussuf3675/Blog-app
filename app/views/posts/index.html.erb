@@ -1,10 +1,38 @@
 <div class="posts-container">
-  <h1>Add a new post</h1>
-  <div class="form_post">
-    <%= form_with model: @post do |form| %>
-      <%= form.text_field :title, class: "form_title", placeholder: "Title" %>
-      <%= form.text_area :text, class: "form_text", placeholder: "Type your post here..." %>
-      <%= form.submit "Create", class: "form_btn" %>
-      <% end %>
-  </div>
+
+    <div class="user-box">
+        <img class="user-img" src=<%= @user.photo%> alt="user"/>
+        <div class="user-info-box">
+            <h2 class="user-name"><%= @user.name %></h2>
+            <p class="user-post-count">Number of posts: <%= @user.posts_counter%></p>
+
+        </div>
+    </div>
+
+    <% @posts.each do |post| %>
+        <div class="user-recent-post">
+            <h2 class="user-post-title">Post: #<%= post.id %></h2>
+            <p class="user-post-text"><%= post.text %></p>
+            <h3 class="counter">Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter %><h3>
+
+            <div class="comment_container">
+                <% post.recent_comments.each do |comment|%>
+                    <h3 class="comments"><%= comment.author.name %>:     <%= comment.text %></h3>
+                <% end %>
+            </div>
+            <div class="like_comment">
+                <%= form_with url: post_likes_path(post) do |form| %>
+                    <%= form.submit "Like", class: "btn" %>
+                <% end %>
+                <%= form_with url: post_likes_path(post) do |form| %>
+                    <%= form.submit "Comment", class: "btn" %>
+                <% end %>
+            </div>
+        </div>
+    <% end%>
+
+    <button class="button">
+        Pagination
+    </button>
+
 </div>
