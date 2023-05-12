@@ -1,7 +1,22 @@
-<h1>Post List</h1>
+<div class="posts-container">
 
-<% @posts.each do |post|%>
-    <div class="post">
-        <%= post.text %>
-    </div>
-    <% end %>
+    <% @posts.each do |post| %>
+        <div class="user-recent-post">
+            <h2 class="user-post-title">Post: #<%= post.id %></h2>
+            <p class="user-post-text"><%= post.text %></p>
+            <h3 class="counter">Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter %><h3>
+
+            <div class="comment_container">
+                <% post.recent_comments.each do |comment|%>
+                    <h3 class="comments"><%= comment.author.name %>:     <%= comment.text %></h3>
+                <% end %>
+            </div>
+
+        </div>
+    <% end%>
+
+    <button class="button">
+        Pagination
+    </button>
+
+</div>

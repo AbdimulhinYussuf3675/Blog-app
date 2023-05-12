@@ -1,0 +1,109 @@
+.users-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  width: 80%;
+  border-radius: 10px;
+  margin: 50px 0;
+  padding: 20px 0;
+}
+
+.text-dec {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 90%;
+  text-decoration: none;
+}
+
+.users-heading {
+  font-size: 30px;
+  margin: 40px 0 20px 0;
+}
+
+.user-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 40px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  width: 70%;
+  padding: 20px 0;
+}
+
+.user-img {
+  display: flex;
+  width: 130px;
+  height: 100px;
+  background-color: bisque;
+  border-radius: 10px;
+}
+
+.user-info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  border: 2px solid #000;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user-name {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.user-post-count {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  align-self: flex-end;
+}
+
+.user-bio {
+  margin: 10px 0;
+  width: 70%;
+  border: 2px solid #000;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.user-recent-post {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  width: 70%;
+  border: 2px solid #000;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.user-post-text {
+  margin-top: 10px;
+}
+
+.text {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.user-post-counters {
+  align-self: flex-end;
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  padding: 5px;
+  background-color: burlywood;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: 20px;
+}
