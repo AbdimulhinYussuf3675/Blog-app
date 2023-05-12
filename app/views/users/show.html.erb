@@ -19,8 +19,16 @@
             <h2 class="user-post-title">Post : <%= post.title %></h2>
             <p class="user-post-text"><%= post.text %></p>
             <h3 class="user-post-counters">Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter %><h3>
-        </div>
-        <% end %>
+            </div>
+            <% end %>
+            <div class="like_comment">
+                <%= form_with url: post_likes_path(post) do |form| %>
+                    <%= form.submit "Like", class: "btn" %>
+                <% end %>
+                <%= form_with url: post_likes_path(post) do |form| %>
+                    <%= form.submit "Comment", class: "btn" %>
+                <% end %>
+            </div>
     <% end%>
 
     <button class="button">

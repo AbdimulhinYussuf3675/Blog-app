@@ -12,4 +12,10 @@
                 <h3 class="comments"><%= comment.author.name %>:  <%= comment.text %></h3>
             <% end %>
         </div>
+        <div class="form_post">
+            <%= form_with model: [@post, @post.comments.build] do |form| %>
+            <%= form.text_area :text, class: "comment_text", placeholder: "Type your comment here..." %>
+            <%= form.submit "Create", class: "form_btn" %>
+      <% end %>
+  </div>
 </div>
