@@ -107,3 +107,21 @@ button {
   font-size: 20px;
   margin: 20px;
 }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  padding: 2px 10px;
+  background-color: bisque;
+  border-radius: 15px;
+  font-size: 18px;
+}
+
+.like_comment {
+  display: flex;
+  gap: 10px;
+  flex-direction: row;
+  align-self: flex-end;
+  margin-right: 15%;
+}
