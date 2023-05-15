@@ -17,7 +17,7 @@
 
             <div class="comment_container">
                 <% post.recent_comments.each do |comment|%>
-                    <h3 class="comments"><%= comment.author.name %>:     <%= comment.text %></h3>
+                    <h3 class="comments"><%= comment.author.name %>: <%= comment.text %></h3>
                 <% end %>
             </div>
             <div class="like_comment">
