@@ -61,3 +61,51 @@ describe 'User post index page', type: :feature do
     expect(page).to have_current_path user_post_path(@post1.author_id, @post1)
   end
 end
+
+
+describe 'Post show page', type: :feature do
+  before :each do
+    @user = User.create(id: 1, name: 'user1', photo: 'photo.png', bio: 'This is my bio', posts_counter: 0)
+
+    @post1 = Post.create(id: 1, title: 'title1', text: 'post1', likes_counter: 0, comments_counter: 0, author: @user)
+
+    @comment1 = Comment.create(id: 1, text: 'comment1', author: User.first, post: Post.first)
+    @comment2 = Comment.create(id: 2, text: 'comment2', author: User.first, post: Post.first)
+    @comment3 = Comment.create(id: 3, text: 'comment3', author: User.first, post: Post.first)
+
+    @post1.likes.create(user_id: @user.id)
+    @post2.likes.create(user_id: @user.id)
+
+    visit(user_post_path(@user.id, @post1.id))
+  end
+
+  it 'I can see the post\'s title.' do
+    expect(page).to have_content('title1')
+  end
+
+  it 'I can see who wrote the post.' do
+    expect(page).to have_content('user1', count: 4)
+  end
+
+  it 'I can see how many comments it has.' do
+    expect(page).to have_content('Comments: 3')
+  end
+
+  it 'I can see how many likes it has.' do
+    expect(page).to have_content('Likes: 2')
+  end
+
+  it 'I can see the post body.' do
+    expect(page).to have_content('post1')
+  end
+
+  it 'I can see the username of each commentor.' do
+    expect(page).to have_content('user1', count: 4)
+  end
+
+  it 'I can see the comment each commentor left.' do
+    expect(page).to have_content('comment2')
+    expect(page).to have_content('comment2')
+    expect(page).to have_content('comment2')
+  end
+end
