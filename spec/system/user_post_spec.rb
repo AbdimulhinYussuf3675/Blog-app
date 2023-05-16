@@ -4,7 +4,7 @@ describe 'User post index page', type: :feature do
   before :each do
     @user = User.create(id: 1, name: 'user1', photo: 'photo.png', bio: 'This is my bio', posts_counter: 0)
 
-    @post1= Post.create(title: 'title1', text: 'post1', likes_counter: 0, comments_counter: 0, author: @user)
+    @post1 = Post.create(title: 'title1', text: 'post1', likes_counter: 0, comments_counter: 0, author: @user)
     @post2 = Post.create(title: 'title2', text: 'post2', likes_counter: 0, comments_counter: 0, author: @user)
     @post3 = Post.create(title: 'title3', text: 'post3', likes_counter: 0, comments_counter: 0, author: @user)
 
@@ -21,7 +21,7 @@ describe 'User post index page', type: :feature do
     end
   end
 
-  it "shows the users username" do
+  it 'shows the users username' do
     expect(page).to have_content('user1')
   end
 
@@ -60,5 +60,4 @@ describe 'User post index page', type: :feature do
     click_link 'title1'
     expect(page).to have_current_path user_post_path(@post1.author_id, @post1)
   end
-
 end
