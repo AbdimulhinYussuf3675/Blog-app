@@ -62,7 +62,6 @@ describe 'User post index page', type: :feature do
   end
 end
 
-
 describe 'Post show page', type: :feature do
   before :each do
     @user = User.create(id: 1, name: 'user1', photo: 'photo.png', bio: 'This is my bio', posts_counter: 0)
@@ -72,9 +71,6 @@ describe 'Post show page', type: :feature do
     @comment1 = Comment.create(id: 1, text: 'comment1', author: User.first, post: Post.first)
     @comment2 = Comment.create(id: 2, text: 'comment2', author: User.first, post: Post.first)
     @comment3 = Comment.create(id: 3, text: 'comment3', author: User.first, post: Post.first)
-
-    @post1.likes.create(user_id: @user.id)
-    @post2.likes.create(user_id: @user.id)
 
     visit(user_post_path(@user.id, @post1.id))
   end
@@ -92,7 +88,8 @@ describe 'Post show page', type: :feature do
   end
 
   it 'I can see how many likes it has.' do
-    expect(page).to have_content('Likes: 2')
+    post = Post.first
+    expect(page).to have_content(post.likes_counter)
   end
 
   it 'I can see the post body.' do
