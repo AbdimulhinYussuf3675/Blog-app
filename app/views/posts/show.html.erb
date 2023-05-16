@@ -1,7 +1,7 @@
 <div class="users-container">
     <div class="user-recent-post">
         <div class="post-inf-box"
-            <h2 class="user-post-title">Post: #<%= @post.id %> by <%= @post.author.name %></h2>
+            <h2 class="user-post-title">Post:<%= @post.title %> by <%= @post.author.name %></h2>
             <h3>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter %><h3>
         </div>
         <p class="user-post-text"><%= @post.text %></p>
