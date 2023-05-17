@@ -14,25 +14,25 @@
  *= require_self
  */
 
- @import "posts.css";
- @import "user.css";
- @import "navbar.css";
- @import "flash.css";
+@import "posts.css";
+@import "user.css";
+@import "navbar.css";
+@import "flash.css";
 
- *,
- *::after,
- *::before {
-   box-sizing: border-box;
-   margin: 0;
-   padding: 0;
-   color: black;
-   font-family: Arial, Helvetica, sans-serif;
- }
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
- body {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background-color: rgb(255, 242, 225);
- }
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(255, 242, 225);
+}
