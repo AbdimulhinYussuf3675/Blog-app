@@ -5,5 +5,7 @@
       turbo_method: :delete,
       turbo_confirm: "¿Are you sure you want to log out?"
     } %>
+  <% elsif %>
+    <%= link_to 'Sign in', new_user_session_path %>
   <% end %>
 </nav>
