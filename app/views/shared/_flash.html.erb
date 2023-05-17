@@ -1,0 +1,10 @@
+<% if flash.key? :notice %>
+  <div class="flash notice">
+    <%= notice %>
+  </div>
+<% end %>
+<% if flash.key? :alert %>
+  <div class="flash alert">
+    <%= alert %>
+  </div>
+<% end %>
