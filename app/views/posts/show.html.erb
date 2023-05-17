@@ -3,6 +3,9 @@
         <div class="post-inf-box">
             <h2 class="user-post-title">Post: #<%= @post.title %> by <%= @post.author.name %></h2>
             <h3>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter %><h3>
+            <% if can? :detroy, @post %>
+                <%= button_to 'Delete post', delete_user_post_path(current_user, @post), class: "btn_delete_comment", method: :delete %>
+            <% end %>
         </div>
         <p class="user-post-text"><%= @post.text %></p>
 
