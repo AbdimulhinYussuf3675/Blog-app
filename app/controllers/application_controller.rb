@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
 
     allowed_pages = [new_user_session_path, new_user_password_path]
 
-    redirect_to new_user_session_path if allowed_pages.includes(request.original_fullpath)
+    redirect_to new_user_session_path unless allowed_pages.include?(request.original_fullpath)
   end
 end
