@@ -75,4 +75,6 @@ end
 
 gem 'devise'
 
+gem 'letter_opener'
+
 gem 'rubocop', '>= 1.0', '< 2.0'
