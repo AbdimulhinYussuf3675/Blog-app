@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
       return
     end
 
-    allowed_pages = [new_user_session_path, new_user_password_path]
+    allowed_pages = [new_user_session_path, new_user_password_path, new_user_registration_path]
 
     redirect_to new_user_session_path unless allowed_pages.include?(request.original_fullpath)
   end
