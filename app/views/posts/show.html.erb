@@ -1,6 +1,6 @@
 <div class="users-container">
     <div class="user-recent-post">
-        <div class="post-inf-box"
+        <div class="post-inf-box">
             <h2 class="user-post-title">Post: #<%= @post.title %> by <%= @post.author.name %></h2>
             <h3>Comments: <%= @post.comments_counter%>, Likes: <%= @post.likes_counter %><h3>
         </div>
@@ -10,12 +10,8 @@
         <div class="comment-box">
             <% @comments.each do |comment|%>
                 <h3 class="comments"><%= comment.author.name %>:  <%= comment.text %></h3>
-            <% end %>
+                <%= button_to 'Delete comment', delete_user_post_comment_path(current_user, @post, comment), class: "btn_delete_comment", method: :delete %>
+                <% end %>
         </div>
-        <div class="form_post">
-            <%= form_with model: [@post, @post.comments.build] do |form| %>
-            <%= form.text_area :text, class: "comment_text", placeholder: "Type your comment here..." %>
-            <%= form.submit "Create", class: "form_btn" %>
-      <% end %>
   </div>
 </div>

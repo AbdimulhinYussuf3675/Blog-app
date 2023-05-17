@@ -1,0 +1,13 @@
+<header>
+    <nav>
+        <ul class="nav_list">
+            <li><%= link_to "Home", users_path, class: "nav-title" %></li>
+            <% if user_signed_in? %>
+            <li><p class="nav_name">Welcome <%= current_user.name%></p></li>
+            <li><%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-btn"  %></li>
+            <% else %>
+            <li><%= button_to "Sign In", new_user_session_path, class: "nav-btn"  %></li>
+            <% end %>
+        </ul>
+    </nav>
+</header>  
