@@ -15,8 +15,11 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     if user_signed_in?
       super
-    elsif request.original_fullpath != new_user_session_path
-      redirect_to new_user_session_path
+      return
     end
+
+    allowed_pages = [new_user_session_path, new_user_password_path]
+
+    redirect_to new_user_session_path if allowed_pages.includes(request.original_fullpath)
   end
 end
