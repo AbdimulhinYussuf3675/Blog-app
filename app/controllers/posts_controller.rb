@@ -1,12 +1,14 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource param_method: :post_params, only: %i[create]
+
   def show
-    @post = Post.includes(comments: :author).find_by(params[id: :user_id])
+    @post = Post.includes(comments: :author).find_by(author_id: params[:user_id], id: params[:id])
     @comments = @post.comments.includes(:author)
   end
 
   def index
-    @user = User.includes(:posts, posts: [:author, :comments, { comments: :author }]).find(params[:user_id])
-    @posts = @user.posts
+    @user = User.find(params[:user_id])
+    @posts = Post.where(author_id: params[:user_id])
   end
 
   def new
@@ -22,6 +24,17 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(current_user)
     else
       render :new
+    end
+  end
+
+  def destroy
+    @post = Post.find_by(author_id: params[:user_id], id: params[:post_id])
+    return render file: "#{Rails.root}/public/404.html", status: :not_found, layout: false if @post.nil?
+
+    if @post.destroy
+      redirect_to user_posts_path(current_user)
+    else
+      redirect_to user_post_path(current_user, @post)
     end
   end
 
