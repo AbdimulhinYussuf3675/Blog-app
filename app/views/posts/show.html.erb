@@ -10,8 +10,10 @@
         <div class="comment-box">
             <% @comments.each do |comment|%>
                 <h3 class="comments"><%= comment.author.name %>:  <%= comment.text %></h3>
-                <%= button_to 'Delete comment', delete_user_post_comment_path(current_user, @post, comment), class: "btn_delete_comment", method: :delete %>
+                <% if can? :detroy, comment %>
+                    <%= button_to 'Delete comment', delete_user_post_comment_path(current_user, @post, comment), class: "btn_delete_comment", method: :delete %>
                 <% end %>
+            <% end %>
         </div>
   </div>
 </div>
