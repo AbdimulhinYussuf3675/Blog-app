@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_03_144046) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_16_150752) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,11 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_144046) do
     t.index ["author_id"], name: "index_posts_on_author_id"
   end
 
-  create_table "shortlister_students", primary_key: "student_id", id: :integer, default: nil, force: :cascade do |t|
-    t.string "student_name", limit: 50
-    t.string "student_email", limit: 100
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.text "photo"
@@ -57,7 +52,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_144046) do
     t.bigint "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.index ["author_id"], name: "index_users_on_author_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "comments", "posts"
