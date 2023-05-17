@@ -1,0 +1,22 @@
+.flash {
+  padding: 8px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  margin: 10px;
+  margin-top: 50px;
+  font-size: 22px;
+  box-shadow: 10px 10px 10px grey;
+
+}
+
+.flash.alert {
+  border-color: rgb(146, 17, 17);
+  background-color: rgba(146, 17, 17, 0.132);
+  color: rgb(146, 17, 17);
+}
+
+.flash.notice {
+  border-color: rgba(54, 146, 17, 0.725);
+  background-color: rgba(54, 146, 17, 0.132);
+  color: rgba(54, 146, 17, 0.725);
+}

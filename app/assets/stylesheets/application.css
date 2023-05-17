@@ -32,4 +32,5 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: rgb(249, 226, 227);
 }
