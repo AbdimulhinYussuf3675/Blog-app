@@ -22,10 +22,10 @@
             </div>
             <% end %>
             <div class="like_comment">
-                <%= form_with url: user_post_likes_path(current_user, post) do |form| %>
+                <%= form_with url: post_likes_path(post) do |form| %>
                     <%= form.submit "Like", class: "btn" %>
                 <% end %>
-                <%= link_to new_user_post_comment_path(current_user, post), class:"text-dec" do %>
+                <%= link_to new_post_comment_path(post), class:"text-dec" do %>
                     <button class="btn_comment">Comment</button>
                 <% end %>
             </div>

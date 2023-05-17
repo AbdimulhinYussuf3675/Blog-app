@@ -1,7 +1,10 @@
 <div class="form_post">
 
-<%= form_with model: @comment, url: create_user_post_comment_url, method: :post, local: true, scope: :comment do |form| %>
-<%= form.text_area :text, class: "comment_text", placeholder: "Type your comment here..." %>
+<%= form_with model: [@post, @comment] do |form| %>
+  <% @comment.errors.full_messages.each do |error| %>
+    <div><%= error %></div>
+  <% end %>
+<%= form.text_area :text, class: "comment_text", placeholder: "Type your comment here..."%>
 <%= form.submit "Create", class: "form_btn" %>
 <% end %>
 </div>
