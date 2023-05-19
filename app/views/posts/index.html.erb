@@ -26,8 +26,8 @@
                 <%= form_with url: post_likes_path(post) do |form| %>
                     <%= form.submit "Like", class: "btn" %>
                 <% end %>
-                <%= form_with url: post_likes_path(post) do |form| %>
-                    <%= form.submit "Comment", class: "btn" %>
+                <%= link_to new_post_comment_path(post) do %>
+                    <button class="btn_comment">Comment</button>
                 <% end %>
             </div>
         </div>

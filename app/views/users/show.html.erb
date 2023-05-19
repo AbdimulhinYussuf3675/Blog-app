@@ -1,6 +1,6 @@
 <div class="users-container">
     <div class="user-box">
-        <img class="user-img" src=<%= @user.photo %> alt="user"/>
+        <img class="user-img" src="<%= @user.photo %>" alt="user"/>
         <div class="user-info-box">
             <h2 class="user-name"><%= @user.name %></h2>
             <p class="user-post-count">Number of posts: <%= @user.posts_counter%></p>
@@ -14,24 +14,24 @@
 
 
     <% @user.recent_posts.each do |post| %>
+        <%= link_to user_post_path(@user.id, post.id), class:"text" do %>
         <div class="user-recent-post">
-            <%= link_to user_post_path(@user.id, post.id), class:"text#{post.id}" do %>
             <h2 class="user-post-title">Post : <%= post.title %></h2>
-            <% end %>
             <p class="user-post-text"><%= post.text %></p>
             <h3 class="user-post-counters">Comments: <%= post.comments_counter%>, Likes: <%= post.likes_counter %><h3>
             </div>
+            <% end %>
             <div class="like_comment">
                 <%= form_with url: post_likes_path(post) do |form| %>
                     <%= form.submit "Like", class: "btn" %>
                 <% end %>
-                <%= form_with url: post_likes_path(post) do |form| %>
-                    <%= form.submit "Comment", class: "btn" %>
+                <%= link_to new_post_comment_path(post), class:"text-dec" do %>
+                    <button class="btn_comment">Comment</button>
                 <% end %>
             </div>
     <% end%>
 
-    <%= link_to user_posts_path(@user), class:"text-dec" do %>
-            "See all posts"
-    <% end %>
+    <button class="button">
+        <%= link_to "See all posts", user_posts_path(@user), class:"text-dec" %>
+    </button>
 </div>
