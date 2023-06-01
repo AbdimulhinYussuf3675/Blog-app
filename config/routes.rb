@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  default_url_options :host => "example.com"
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
   devise_for :users
