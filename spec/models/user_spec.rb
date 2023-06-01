@@ -7,6 +7,8 @@ RSpec.describe User, type: :model do
       user.photo = 'https://images.unsplash.com/photo-1533167649158-6d508895b680?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80'
       user.bio = 'Am a kenyan'
       user.posts_counter = 0
+      user.email = 'example@gmail.com'
+      user.password = '123df2'
     end
   end
 
